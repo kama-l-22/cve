@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const Box = ({ width, height, des, focus,className }) => {
   return (
     <div className="box" style={{ width: width, height: height }}>
@@ -10,6 +10,11 @@ const Box = ({ width, height, des, focus,className }) => {
 };
 
 export default function Individualpage() {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/cvelist');
+  }
   return (
     <div className="userBox">
       <div className="usersub">
@@ -20,7 +25,7 @@ export default function Individualpage() {
         </div>
         <Box width={770} height={70}  focus={"Currently Viewing The Details of User: Kamaleshvaran"}/>
       </div>
-      <div className="link">View All issue</div>
+      <div className="link" onClick={handleClick}>View All issue</div>
     </div>
   );
 }
